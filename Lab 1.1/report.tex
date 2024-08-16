@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[light]{chs-physics-report}
+\usepackage[light, inline-math]{chs-physics-report}
 \usepackage{pgfplots}
 
 \usepgfplotslibrary{external}
@@ -12,22 +12,25 @@
 
 \begin{document}
 \section{Results}
-% \begin{tikzpicture}
-%     \begin{axis}[enlargelimits=false]
-%         \addplot+[
-%             only marks,
-%             mark=o
-%         ]
-%         table[x=Average Time (s), y=Distance (m), col sep=comma]{Lab 1.1.csv}
-%     \end{axis}
-% \end{tikzpicture}
+\begin{figure}
+    % \begin{tikzpicture}
+    %     \begin{axis}[enlargelimits=false]
+    %         \addplot+[
+    %             only marks,
+    %             mark=o
+    %         ]
+    %         table[x=Average Time (s), y=Distance (m), col sep=comma]{Lab 1.1.csv}
+    %     \end{axis}
+    % \end{tikzpicture}
+    \label{fig:linear}
+\end{figure}
 \section{Analysis}
 \subsection{Slope of Linearized Position Graph}
 The kinematics equation most suited to being linearized to use to find accerelation is as follows:
 \[\Delta x = v_0t + \frac{1}{2}at^2\]
-Since our starting point was defined as our zero point and initial velocity $v_0$ was close to zero, the equation can be rewritten as a position function of time $t$ as follow:
+Since our starting point was defined as our zero point and initial velocity $v_0$ was close to zero, the equation can be rewritten as a position function of time $t$ as follows:
 \[x(t) = \frac{1}{2}at^2\]
-
+By graphing $t^2$ on the $x$-axis and $x(t)$ on the $y$-axis, as is done in Figure \ref{fig:linear}, the slope of the graph is $\frac{1}{2}a$, so doubling the slope would result in the value of $a$. The slope of the graph in Figure \ref{fig:linear} is $0.682$, thus the accerelation derived from that graph is $1.364$.
 
 \subsection{Derivatives of Polynomial Position Function}
 \subsection{Derivatives of Linearized vs. Polynomial Position Functions}
