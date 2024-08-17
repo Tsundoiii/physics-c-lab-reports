@@ -1,39 +1,71 @@
 \documentclass{article}
 \usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
 \usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
 
-\usepgfplotslibrary{external}
-\tikzexternalize
+%\usepgfplotslibrary{external}
+%\tikzexternalize
 \pgfplotsset{compat=1.18}
 
-\title{Cart on Ramp Lab}
+\title{1.1: Cart on Ramp Lab}
 \name{Gavin Chen}
 \ww{Cole TerBush and Daniel Aronov}
 
 \begin{document}
 \section{Results}
-\begin{figure}
-    % \begin{tikzpicture}
-    %     \begin{axis}[enlargelimits=false]
-    %         \addplot+[
-    %             only marks,
-    %             mark=o
-    %         ]
-    %         table[x=Average Time (s), y=Distance (m), col sep=comma]{Lab 1.1.csv}
-    %     \end{axis}
-    % \end{tikzpicture}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[enlargelimits=false, xlabel = {Average Time ($s$)}, ylabel = {Distance($m$)}]
+            \addplot[domain=0:1.2, samples=100, blue, thick] {-0.00621 + 0.12*x + 0.606*x^2};
+            \addlegendentry{\(x(t) = -0.00621 + 0.12t + 0.606t^2\)}
+
+            \addplot+[
+                only marks,
+            ] table[x=Average Time (s), y=Distance (m), col sep=comma]{Lab 1.1.csv};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{The average time of three trials it took the cart to travel each distance, along with a polynomial approximation $x(t)$ of the position function of the cart.}
+    \label{fig:polynomial}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[enlargelimits=false, xlabel = {Average Time Squared ($s^2$)}, ylabel = {Distance($m$)}]
+            \addplot[domain=0:1.415136, samples=100, blue, thick] {0.682*x + 0.0362};
+            \addlegendentry{\(\Delta x = 0.682x + 0.0362\)}
+
+            \addplot+[
+                only marks,
+            ] table[x=Average Time Squared ($s ^ 2$), y=Distance (m), col sep=comma]{Lab 1.1.csv};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{The average time squared of three trials it took the cart to travel each distance, along with a linear approximation of the graph.}
     \label{fig:linear}
 \end{figure}
+
 \section{Analysis}
 \subsection{Slope of Linearized Position Graph}
 The kinematics equation most suited to being linearized to use to find accerelation is as follows:
 \[\Delta x = v_0t + \frac{1}{2}at^2\]
 Since our starting point was defined as our zero point and initial velocity $v_0$ was close to zero, the equation can be rewritten as a position function of time $t$ as follows:
-\[x(t) = \frac{1}{2}at^2\]
-By graphing $t^2$ on the $x$-axis and $x(t)$ on the $y$-axis, as is done in Figure \ref{fig:linear}, the slope of the graph is $\frac{1}{2}a$, so doubling the slope would result in the value of $a$. The slope of the graph in Figure \ref{fig:linear} is $0.682$, thus the accerelation derived from that graph is $1.364$.
+\[\Delta x = \frac{1}{2}at^2\]
+By graphing $t^2$ on the $x$-axis and $\Delta x$ on the $y$-axis, as is done in Figure \ref{fig:linear}, the slope of the graph is $\frac{1}{2}a$, so doubling the slope would result in the value of $a$. The slope of the graph in Figure \ref{fig:linear} is $0.682 \frac{m}{s ^ 2}$, thus the accerelation derived from that graph is $1.364 \frac{m}{s ^ 2}$.
 
 \subsection{Derivatives of Polynomial Position Function}
+The polynomial approximation of the position function is as follows:
+\[x(t) = -0.00621 + 0.12t + 0.606t^2\]
+Taking the first derivative, we obtain the velocity function:
+\[v(t) = 0.12 + 1.212t\]
+Taking the second derivative, we obtain the acceleration function:
+\[a(t) = 1.212\]
+The acceleration function is constant, meaning the cart experienced a uniform acceleration of $1.212 \frac{m}{s ^ 2}$ as it traveled along the ramp.
+
 \subsection{Derivatives of Linearized vs. Polynomial Position Functions}
+The accerelation obtained using the linearized graph was $1.364 \frac{m}{s ^ 2}$, and the acceleration obtained from the polynomial position graph was $1.212 \frac{m}{s ^ 2}$. These numbers are fairly close, indicating the value of the cart's acceleration along the ramp is close to those quantities.
 
 \subsection{Possible Improvements to Lab}
 If we were to redo our lab to improve our results, there would be a few improvements we would make to our methodology to achieve that goal. Firstly, we would strive for more consistency in the release of the cart on the ramp. A few times, our cart was a little farther behind the photogate than we would've hoped for, meaning the cart did have slight velocity when passing through it. There were also some instances where a little force was applied to the cart, also slightly increasing its starting velocity, so reducing that would also be a goal if this lab were to be repeated. Collecting more data points per distance would also be helpful in increasing the accuracy of our acceleration values.
@@ -41,4 +73,15 @@ If we were to redo our lab to improve our results, there would be a few improvem
 
 \appendix
 \section{Data}
+\pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=6, every head row/.style={
+            before row={
+                    \toprule
+                },
+            after row={
+                    \bottomrule
+                },
+        },
+    every last row/.style={
+            after row=\bottomrule
+        }]{Lab 1.1.csv}
 \end{document}

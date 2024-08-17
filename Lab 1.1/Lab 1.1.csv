@@ -1,4 +1,4 @@
-Distance (m),Trial 1 (s),Trial 2 (s),Trial 3 (s),Average Time (s),Average Time Squared (t ^ 2)
+Distance (m),Trial 1 (s),Trial 2 (s),Trial 3 (s),Average Time (s),Average Time Squared ($s ^ 2$)
 0.1,0.345882,0.334001,0.352501,0.344128,0.118424
 0.2,0.440713,0.491477,0.494068,0.475419,0.226024
 0.3,0.630289,0.616555,0.626738,0.624527,0.390034
