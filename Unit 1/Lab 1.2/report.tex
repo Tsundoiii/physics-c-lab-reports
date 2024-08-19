@@ -12,27 +12,51 @@
 \ww{Cole TerBush and Daniel Aronov}
 
 \begin{document}
-\section{Results}
+\section{Plan Statement}
+We will record the car traveling straight along a meterstick and record how long it takes to travel certain distances, then approximate a position function using that data, then differentiate that function to determine whether the car acceleration is constant or not.
+\section{Procedure}
+\begin{enumerate}
+    \item Obtain car, meterstick, and slow-motion camera.
+    \item Pull car back a certain distance.
+    \item Start recording car with camera.
+    \item Release car, and record car with camera until car stops.
+    \item Examine recording to determine how long it took car to reach distances of 0.05 $m$ increments.
+    \item Repeat with different pullback distances.
+\end{enumerate}
+\section{Data}
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
-        \begin{axis}[enlargelimits=false, xlabel = {Average Time ($s$)}, ylabel = {Distance($m$)}]
-            \addplot[domain=0:1.2, samples=100, blue, thick] {-0.00621 + 0.12*x + 0.606*x^2};
-            \addlegendentry{\(x(t) = -0.00621 + 0.12t + 0.606t^2\)}
+        \begin{axis}[enlargelimits=false, xlabel = Trial 1 Time ($s$), ylabel = Distance($m$)]
+            \addplot[domain=0:0.35, samples=100, blue, thick] {0.0387 + 2.15 * x - 1.15 * x^2};
+            \addlegendentry{Trial 1 ($R^2 = 0.996$)}
+            \addplot[domain=0:0.35, samples=100, red, thick] {0.0383 + 0.932 * x + 5.32 * x^2};
+            \addlegendentry{Trial 2 ($R^2 = 0.998$)}
+            \addplot[domain=0:0.35, samples=100, green, thick] {0.035 + 0.799 * x + 7.07 * x^2};
+            \addlegendentry{Trial 3 ($R^2 = 0.998$)}
 
             \addplot+[
                 only marks,
-            ] table[x=Average Time (s), y=Distance (m), col sep=comma]{Lab 1.2.csv};
+                mark=*,
+                mark options={fill=blue, draw=blue}
+            ] table[x=Trial 1 Time (s), y=Distance (m), col sep=comma]{Lab 1.2.csv};
+            \addplot+[
+                only marks,
+                mark=*,
+                mark options={fill=red, draw=red}
+            ] table[x=Trial 2 Time (s), y=Distance (m), col sep=comma]{Lab 1.2.csv};
+            \addplot+[
+                only marks,
+                mark=*,
+                mark options={fill=green, draw=green}
+            ] table[x=Trial 3 Time (s), y=Distance (m), col sep=comma]{Lab 1.2.csv};
         \end{axis}
     \end{tikzpicture}
-    \caption{The average time of three trials it took the cart to travel each distance, along with a polynomial approximation $x(t)$ of the position function of the cart.}
-    \label{fig:polynomial}
+    \caption{The position functions of each trial, along with the associated $R^2$ values.}
+    \label{fig:times}
 \end{figure}
 
-\section{Plan Statement}
-\section{Procedure}
-\section{Data}
-\pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=6, every head row/.style={
+\pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=2, every head row/.style={
             before row={
                     \toprule
                 },
@@ -44,4 +68,15 @@
             after row=\bottomrule
         }]{Lab 1.2.csv}
 \section{Analysis}
+All three trials were modeled with second-degree polynomial position functions as follows:
+\[x_1(t) = 0.0387 + 2.15x - 1.15x^2\]
+\[x_2(t) = 0.0383 + 0.932x + 5.32x^2\]
+\[x_3(t) = 0.035 + 0.799x + 7.07x^2\]
+These functions are very accurate models of the data, as indicated by the very high $R^2$ values of each of these functions when compared with the discreet data they respectively model.
+
+The acceleration functions derived from these functions are as follows:
+\[a_1(t) = -2.30\]
+\[a_2(t) = 10.64\]
+\[a_3(t) = 14.14\]
+Since these are all constant functions, we have demonstrated that the manufacturer's claim of the car experiencing near constant acceleration is supported.
 \end{document}
