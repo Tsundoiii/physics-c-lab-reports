@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+\pgfplotsset{compat=1.18}
+
+\title{1.4: Range versus Angle Lab}
+\name{Gavin Chen}
+\ww{Cole TerBush and Daniel Aronov}
+
+\begin{document}
+\section{Equation}
+Beginning with the equation:
+\[\Delta x = v_0\cos(\theta)t + \frac{1}{2}a_xt^2\]
+$a_x$ is 0, so that term disappears. Solving for $t$, we obtain:
+\[t = \frac{\Delta x}{v_0\cos(\theta)}\]
+We may plug that into the height equation:
+\[\Delta y = v_0\sin(\theta)t + \frac{1}{2}a_yt^2\]
+To obtain:
+\[\Delta y = v_0\sin(\theta)(\frac{\Delta x}{v_0\cos(\theta)}) + \frac{1}{2}a_y(\frac{\Delta x}{v_0\cos(\theta)})^2\]
+\[\Delta y = \Delta x\tan(\theta) + \frac{a_y(\Delta x^2)\sec^2(\theta)}{2v_0^2}\]
+\section{Conclusion and Error Analysis}
+\end{document}
