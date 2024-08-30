@@ -7,7 +7,7 @@
 
 \pgfplotsset{compat=1.18}
 
-\title{1.4: Range versus Angle Lab}
+\title{1.5: Varying Angle to Maximize Height on a Wall Lab}
 \name{Gavin Chen}
 \ww{Cole TerBush and Daniel Aronov}
 
@@ -21,6 +21,17 @@ We may plug that into the height equation:
 \[\Delta y = v_0\sin(\theta)t + \frac{1}{2}a_yt^2\]
 To obtain:
 \[\Delta y = v_0\sin(\theta)(\frac{\Delta x}{v_0\cos(\theta)}) + \frac{1}{2}a_y(\frac{\Delta x}{v_0\cos(\theta)})^2\]
-\[\Delta y = \Delta x\tan(\theta) + \frac{a_y(\Delta x^2)\sec^2(\theta)}{2v_0^2}\]
+\[\Delta y = \Delta x\tan(\theta) + \frac{a_y(\Delta x)^2\sec^2(\theta)}{2v_0^2}\]
+Since $\Delta y$ and $v_0$ are known constants, this expression can be rewritten as a function of the angle $\theta$:
+\[h(\theta) = \Delta x\tan(\theta) + \frac{a_y(\Delta x)^2\sec^2(\theta)}{2v_0^2}\]
+And its derivative can be taken:
+\[\frac{dh}{d\theta} = \Delta x\sec^2(\theta) + \frac{a_y(\Delta x)^2\sec^2(\theta)\tan(\theta)}{v_0^2}\]
+Plugging in the constants $a_y = -g$, $\Delta x = 0.67$ m, and $v_0 = 4.32 \frac{m}{s}$, we obtain:
+\[h(\theta) = 0.67\tan(\theta) - 0.012g\sec^2(\theta)\]
+\[\frac{dh}{d\theta} = 0.67\sec^2(\theta) - 0.024g\sec^2(\theta)\tan(\theta)\]
+$\frac{dh}{d\theta} = 0$ at $\theta \approx 70.6\degree$ and $\frac{dh}{d\theta}$ transtions from being positive to negative at that angle, thus by the first derivative test, $\theta \approx 70.6\degree$ is a maximum of the function, and the maximum height achieved will be $h(70.6\degree) \approx 0.84$ m.
+\section{Experimental versus Theoretical Valuess}
+The highest achieved experimental height was achieved at $\theta = 70\degree$, being 0.835 m, giving a percent error of $\sim0.6\%$.
 \section{Conclusion and Error Analysis}
+By using the first derivative test, we were able to correctly predict the angle which gives the maximum height of a ball shot on a wall. Error in this lab likely primarily came from our measurement of $v_0$, which we measured by shooting the ball vertically and timing it, which was not completely accurate due to both the instability of the ball's path as it traveled and due to imprecision in timing it.
 \end{document}
