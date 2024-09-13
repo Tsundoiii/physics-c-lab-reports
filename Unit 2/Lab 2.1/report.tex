@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[light, inline-math]{chs-physics-report}
+\usepackage[inline-math]{chs-physics-report}
 \usepackage{float}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
@@ -12,6 +12,8 @@
 \ww{Cole TerBush and Daniel Aronov}
 
 \begin{document}
+\maketitle
+
 \section{Free Body Diagrams}
 \subsection{Section 1}
 \begin{center}
@@ -54,6 +56,50 @@
     \end{tikzpicture}
 \end{center}
 \section{Data}
+\subsection{Section 1}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=2, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Section 1.csv}
+\end{center}
+
+\subsection{Section 2}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Section 2.csv}
+\end{center}
+
+\subsection{Section 3}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Section 3.csv}
+\end{center}
 \section{$\mu$ Values}
 \section{Improvements}
 \end{document}
