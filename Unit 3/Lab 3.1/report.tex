@@ -12,9 +12,57 @@
 \ww{Cole TerBush, Daniel Aronov, and Tim Marijono}
 
 \begin{document}
-\section{Speed Of Ball At Lowest Point At Path}
+\section{Derivations}
+\subsection{Speed of Ball at Lowest Point in Path}
 \[mgh = \frac{1}{2}mv^2\]
 \[2gh = v^2\]
 \[v = \sqrt{2gh}\]
 \[v = \sqrt{2g(L - L\cos(\theta))}\]
+\subsection{Speed of Ball at Top of Circular Path}
+\[\frac{1}{2}mv_b^2 = \frac{1}{2}mv_t^2 + mgh\]
+\[v_b^2 = v_t^2 + 2gh\]
+\[v_t^2 = v_b^2 - 2gh\]
+\[v_t = \sqrt{v_b^2 - 2gh}\]
+\[v_t = \sqrt{2g(L - L\cos(\theta)) - 2g[2(L - D)]}\]
+\[v_t = \sqrt{2gL - 2gL\cos(\theta) - 4gL + 4gD}\]
+\[v_t = \sqrt{4gD - 2gL - 2gL\cos(\theta)}\]
+\subsection{Minimum Speed of Ball}
+\[F_c = ma_c = F_T + F_g\]
+When at the top, $F_T = 0$, thus:
+\[ma_c = mg\]
+\[a_c = g\]
+\[\frac{v^2}{r} = g\]
+\[v^2 = gr\]
+\[v = \sqrt{gr}\]
+\[v = \sqrt{g(L - D)}\]
+\[v = \sqrt{gL - gD}\]
+\subsection{Distance from Pivot to Rod}
+\[\sqrt{gL - gD} = \sqrt{4gD - 2gL - 2gL\cos(\theta)}\]
+\[gL - gD = 4gD - 2gL - 2gL\cos(\theta)\]
+\[L - D = 4D - 2L - 2L\cos(\theta)\]
+\[5D = 3L + 2L\cos(\theta)\]
+\[D = \frac{3}{5}L + \frac{2}{5}L\cos(\theta)\]
+\section{Experimental Results}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=2, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Lab 3.1.csv}
+\end{center}
+\section{Analysis}
+\subsection{$40\degree$}
+Our theoretical and experimental values were very close, with the experimental value only being 0.03 m off from the theoretical value.
+\subsection{$50\degree$}
+Our theoretical and experimental values were exactly the same.
+\subsection{$60\degree$}
+This trial had the greatest discrepancy between the theoretical and experimental value, with there being a 0.04 m different between our theoretical and experimental values.
+\section{Improvements}
+For some trials, we forgot to hold the rod in place, thus some energy was transferred in those trials, so next time we would always hold the rod in place. Additionally, we were a little inconsistent on where we chose to measure from when measuring the height where we should place the rod, so next time we would choose consistent points to measure from.
 \end{document}
