@@ -7,11 +7,47 @@
 
 \pgfplotsset{compat=1.18}
 
-\title{3.1: Interrupted Pendulum Lab}
+\title{5.3: Static Equilibrium Labs}
 \name{Gavin Chen}
 \ww{Cole TerBush and Tim Marijono}
 
 \begin{document}
 \section{Lab 1}
+\section*{Objective}
+To find the tension force required to hold up a ruler with a hanging mass.
+\section*{Diagram}
+\section*{Derivation}
+\[\tau = F_Tr_{string}\sin(\alpha) - {F_g}_{ruler}r_{ruler}\sin(\beta) - {F_g}_{mass}r_{mass}\sin(\beta)\]
+\[F_T = \frac{\tau + {F_g}_{ruler}r_{ruler}\sin(\beta) + {F_g}_{mass}r_{mass}\sin(\beta)}{r_{string}\sin(\alpha)}\]
+Since $\tau = 0$, we obtain:
+\[F_T = \frac{{F_g}_{ruler}r_{ruler}\sin(\beta) + {F_g}_{mass}r_{mass}\sin(\beta)}{r_{string}\sin(\alpha)}\]
+\section*{Procedures}
+\begin{enumerate}
+    \item Mount ruler to pole
+    \item Mount force sensor to pole above ruler
+    \item Attach force sensor to middle of ruler with string at $90\degree$ angle
+    \item Hang mass from end of ruler
+    \item Record force from force sensor
+    \item Repeat with mass at different lengths
+\end{enumerate}
+\section*{Results}
+
 \section{Lab 2}
+\section*{Objective}
+To find the force required to balance a fulcrum with a hanging mass.
+\section*{Diagram}
+\section*{Derivation}
+\[\tau = F_{app}r_{app} - F_N - {F_g}_{ruler}r_{ruler} - {F_g}_{mass}r_{mass}\]
+\[F_{app} = \frac{\tau + F_N + {F_g}_{ruler}r_{ruler} + {F_g}_{mass}r_{mass}}{r_{app}}\]
+Since $\tau = 0$, we obtain:
+\[F_{app} = \frac{F_N + {F_g}_{ruler}r_{ruler} + {F_g}_{mass}r_{mass}}{r_{app}}\]
+\section*{Procedures}
+\begin{enumerate}
+    \item Place ruler on force sensor
+    \item Hang mass from one end
+    \item Press down on other end with second force sensor
+    \item Record force from second force sensor
+    \item Repeat with different places on ruler on fulcrum
+\end{enumerate}
+\section*{Results}
 \end{document}
