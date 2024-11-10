@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+\pgfplotsset{compat=1.18}
+
+\title{5.2: Moment of Inertia Lab}
+\name{Gavin Chen}
+\ww{Cole TerBush and Tim Marijono}
+
+\begin{document}
+\section{Prelab Questions}
+\begin{enumerate}
+    \item Angular momentum should be conserved, as momentum is always conserved.
+    \item Kinetic energy should not be conserved.
+    \item This is an inelastic collision.
+\end{enumerate}
+\section{Measurements}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, precision=2, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Lab 5.1 Measurements.csv}
+    \pgfplotstabletypeset[col sep=comma, precision=2, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Lab 5.1 Radii.csv}
+\end{center}
+\section{Analysis}
+\begin{enumerate}
+    \item $L_i = {L_i}_{disk} + {L_i}_{ring}= I_{disk}{\omega_i}_{disk} + 0 \frac{kg \cdot m^2}{s} = 0.0035 \frac{kg \cdot m^2}{s}$
+    \item $L_f = {L_f}_{disk} + {L_f}_{ring}= I_{disk}{\omega_f}_{disk} + I_{ring}{\omega_f}_{ring} = 0.0024 \frac{kg \cdot m^2}{s}$
+    \item $KE_i = \frac{1}{2}I_{disk}{\omega_i}_{disk}^2 + 0 J = 0.044 J$
+    \item $KE_f = \frac{1}{2}I_{disk}{\omega_f}_{disk}^2 + \frac{1}{2}I_{ring}{\omega_f}_{ring}^2 = 0.0044 J$
+    \item $L_{\% conserved} = \frac{L_f}{L_i} = 67.91\%$
+    \item $KE_{\% lost} = 100\% - \frac{KE_f}{KE_i} = 90.18\%$
+    \item $J_{ring} = {L_f}_{ring} - {L_i}_{ring} = 0.0019 \frac{kg \cdot m^2}{s} - 0 \frac{kg \cdot m^2}{s} = 0.0019 \frac{kg \cdot m^2}{s}$
+    \item $J_{disk} = {L_f}_{disk} - {L_i}_{disk} = 0.00051 \frac{kg \cdot m^2}{s} - 0.0035 \frac{kg \cdot m^2}{s} = -0.0030 \frac{kg \cdot m^2}{s}$
+    \item The two impulses have similar magnitudes but opposite signs, which makes sense since the total change in momentum, which is the sum of the impulses, should be zero.
+\end{enumerate}
+\end{document}
