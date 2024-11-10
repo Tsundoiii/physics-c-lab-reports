@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+\pgfplotsset{compat=1.18}
+
+\title{5.2: Moment of Inertia Lab}
+\name{Gavin Chen}
+\ww{Cole TerBush and Tim Marijono}
+
+\begin{document}
+\section{Derivation}
+\[U = K_{mech} + K_{rot}\]
+\[mgh = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2\]
+\[mgh = \frac{1}{2}mv^2 + \frac{1}{2}I\frac{v^2}{r^2}\]
+\[mgh - \frac{1}{2}mv^2 = \frac{1}{2}I\frac{v^2}{r^2}\]
+By graphing $mgh - \frac{1}{2}mv^2$ on the $y$-axis and $\frac{v^2}{r^2}$ on the $x$-axis, the constant slope of $\frac{1}{2}I$ can be obtained, which can be doubled to obtain $I$.
+
+Having measured the radius and the mass, the theoretical moment of inertia was found using $I = \frac{2}{5}mr^2$:
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, precision=2, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Lab 5.2 Constants.csv}
+\end{center}
+\section{Procedure}
+\begin{enumerate}
+    \item Mass ball and measure ball radius.
+    \item Attach one end of ramp to pole.
+    \item Release ball and record time for ball to reach ground.
+    \item Repeat for three trials at same pole attachment height to obtain average time.
+    \item Repeat for four different pole attachment heights.
+\end{enumerate}
+\section{Results}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[enlargelimits=false, xlabel = {$\omega^2$ $(\frac{1}{s^2})$}, ylabel = {$mgh - \frac{1}{2}mv^2$ $(\frac{kg \cdot m^2}{s^2})$}]
+            \addplot[domain=0:60375.35338, samples=100, blue, thick] {0.00000135*x - 0.0294};
+            \addplot+[
+                only marks,
+            ] table[x=Angular Velocity Squared, y=y, col sep=comma]{Lab 5.2.csv};
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+The slope of the graph is $1.35 \cdot 10^{-6} \frac{kg \cdot m^2}{s^2}$, which can be doubled to obtain an $I$ value of $2.70 \cdot 10^{-6} \frac{kg \cdot m^2}{s^2}$, which is within an order of magnitude of the theoretical moment of inertia.
+\end{document}
