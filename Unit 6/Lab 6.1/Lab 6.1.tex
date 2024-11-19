@@ -7,14 +7,36 @@
 
 \pgfplotsset{compat=1.18}
 
-\title{5.3: Static Equilibrium Labs}
+\title{6.1: Static Equilibrium Labs}
 \name{Gavin Chen}
-\ww{Cole TerBush and Tim Marijono}
+\ww{Cole TerBush and Daniel Aronov}
 
 \begin{document}
 \section{Measurements Needed}
+\begin{description}
+    \item[Rod mass ($m_r = 0.028 kg$)] Measured with scale.
+    \item[Rod length ($L = 0.382 m$)] Measured with ruler.
+    \item[Mass masses ($m_1 = m_2 = 0.082 kg$)] Measured with scale.
+    \item[Mass positions ($r_1 = 0.28 m, r_2 = 0.33 m$)] Measured with ruler.
+    \item[Rod with masses center of mass ($d = 0.28 m$)] Measured by finding balancing point of rod with masses.
+\end{description}
 \section{Data Collected}
+The only data collected was the period of oscillation, which was collected by letting the pendulum oscillate 5 times, then dividing the total amount of time for 5 oscillations by 5 to obtain the average period of oscillation.
+
+\noindent
+5 oscillations took 6.50 $s$, therefore:
+\[T = \frac{6.50}{5} = 1.30 s\]
 \section{Theoretical $I$}
+\[I_{theoretical} = I_{rod} + I_{m_1} + I_{m_2}\]
+\[I_{theoretical} = (I_{cm} + m_rd^2) + I_{m_1} + I_{m_2}\]
+\[I_{theoretical} = (\frac{1}{12}m_rL^2 + m_rd^2) + m_1r_1^2 + m_2r_2^2\]
+\[I_{theoretical} = 0.0167 kg \cdot m^2\]
 \section{Experimental $I$}
+\[T = \tau\sqrt{\frac{I}{mgd}}\]
+\[\frac{T}{\tau} = \sqrt{\frac{I}{(m_r + m_1 + m_2)gd}}\]
+\[\frac{T^2}{\tau^2} = \frac{I}{(m_r + m_1 + m_2)gd}\]
+\[I = \frac{T^2(m_r + m_1 + m_2)gd}{\tau^2}\]
+\[I_{experimental} = 0.0226 kg \cdot m^2\]
 \section{Error}
+\[\frac{I_{experimental} - I_{theoretical}}{I_{theoretical}} = 35.3\%\]
 \end{document}
