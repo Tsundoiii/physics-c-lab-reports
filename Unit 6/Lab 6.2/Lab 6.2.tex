@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+\pgfplotsset{compat=1.18}
+
+\title{6.2: Springs in Series and Parallel Lab}
+\name{Gavin Chen}
+\ww{Cole TerBush and Daniel Aronov}
+
+\begin{document}
+\section{Hypotheses}
+The spring constant will remain the same when the springs are in parallel.
+
+\noindent
+The spring constant will be halved when the springs are in series.
+\section{Procedure}
+\subsection{Parallel}
+\begin{enumerate}
+    \item Hang two identical springs from the spring brakcet.
+    \item Hang a mass from the two springs.
+    \item Stretch mass on springs.
+    \item Record time for 10 oscillations of mass.
+    \item Divide by 10 to find period.
+    \item Repeat with nonidentical springs.
+\end{enumerate}
+\subsection{Series}
+\begin{enumerate}
+    \item Hang one spring on spring bracket, then hang another identical spring on the spring.
+    \item Hang a mass from the bottom of second spring.
+    \item Stretch mass on springs.
+    \item Record time for 10 oscillations of mass.
+    \item Divide by 10 to find period.
+    \item Repeat with nonidentical springs.
+\end{enumerate}
+\section{Data}
+\section{Derivations}
+\subsection{Experimental $k$}
+\[T = \tau\sqrt{\frac{m}{k}}\]
+\[T^2 = \frac{m}{k}\]
+\[k = \frac{m}{T^2}\]
+\subsection{Parallel $k$}
+\[k_1x + k_2x = F_g\]
+\[k_1 + k_2 = \frac{F_g}{x}\]
+\[k_{eff}x = F_g\]
+\[k_{eff} = \frac{F_g}{x}\]
+\[k_{eff} = k_1 + k_2\]
+\subsection{Series $k$}
+\[k_1x_1 = k_2x_2 = F_g\]
+\[x_1 = \frac{F_g}{k_1}\]
+\[x_2 = \frac{F_g}{k_2}\]
+\[k_{eff}(x_1 + x_2) = F_g\]
+\[k_{eff}(\frac{F_g}{k_1} + \frac{F_g}{k_2}) = F_g\]
+\[k_{eff}(\frac{1}{k_1} + \frac{1}{k_2}) = 1\]
+\[k_{eff} = \frac{1}{\frac{1}{k_1} + \frac{1}{k_2}}\]
+\section{Conclusion}
+\end{document}
