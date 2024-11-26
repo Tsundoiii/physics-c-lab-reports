@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+\pgfplotsset{compat=1.18}
+
+\title{2.3: Terminal Velocity Lab}
+\name{Gavin Chen}
+\ww{Cole TerBush and Daniel Aronov}
+
+\begin{document}
+\section{Derivation}
+At terminal velocity, $a = 0$, therefore:
+\[mg = k{v_T}^n\]
+\[{v_T}^n = \frac{mg}{k}\]
+\[\ln({v_T}^n) = \ln(\frac{mg}{k})\]
+\[n\ln(v_T) = \ln(m) + \ln(g) - \ln(k)\]
+\[\ln(v_T) = \frac{1}{n}\ln(m) + \frac{1}{n}\ln(g) - \frac{1}{n}\ln(k)\]
+\section{Data}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Lab 2.3.csv}
+\end{center}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[enlargelimits=false, xlabel = {$\ln$ Mass ($\ln(kg)$)}, ylabel = {$\ln$ Terminal Velocity ($\ln(\frac{m}{s})$)}]
+            \addplot[domain=-8:-4, samples=100, blue, thick] {0.615 * x + 3.84};
+            \addlegendentry{\(y=0.615x + 3.84\)}
+
+            \addplot+[
+                only marks,
+            ] table[x=ln Mass (ln(kg)), y=ln Terminal Velocity (ln(m/s)), col sep=comma]{Lab 2.3 Natural Logs.csv};
+        \end{axis}
+    \end{tikzpicture}
+    \label{figure:velocity}
+\end{figure}
+
+\section{Analysis}
+\subsection{Coefficient of Velocity}
+$n$ is 2, because the slope of Figure \ref{figure:velocity} is 0.615, which is close to 0.5, which is $\frac{1}{2}$. Therefore, the drag force is proportional to $v^2$.
+\subsection{Graph $y$-intercept}
+The $y$-intercept, which is $b$, which is $\frac{1}{2}\ln(g) - \frac{1}{2}\ln(k)$, is 3.84.
+\subsection{Drag Coefficient}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Lab 2.3 Drag Coefficients.csv}
+\end{center}
+The drag coefficient $k = \frac{mg}{{v_T}^2}$ was calculated for each trial, with an average value of $0.017 \frac{kg}{m}$.
+\section{Assumptions}
+We assumed that the coffee filters had a constant velocity after being dropped, which we assumed was equal to the terminal velocity.
+\end{document}
