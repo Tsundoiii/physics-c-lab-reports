@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+\pgfplotsset{compat=1.18}
+
+\title{6.2: Springs in Series and Parallel Lab}
+\name{Gavin Chen}
+\ww{Cole TerBush, Daniel Aronov, and Tim Marijono}
+
+\begin{document}
+\section{Data}
+\subsection{Experimental Values}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Voltages.csv}
+\end{center}
+\subsection{Theoretical Values}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Theoretical Voltages.csv}
+\end{center}
+\section{Analysis}
+\subsection{Plot}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[enlargelimits=false, xlabel = r ($m$), ylabel = Voltage ($V$)]
+            \addlegendentry{Experimental}
+            \addlegendentry{Theoretical Sphere}
+            \addlegendentry{Theoretical Cylinder}
+
+            \addplot+[
+                only marks,
+                mark=*,
+                mark options={fill=blue, draw=blue}
+            ] table[x=r (m), y=Average (V), col sep=comma]{Voltages.csv};
+            \addplot+[
+                only marks,
+                mark=*,
+                mark options={fill=red, draw=red}
+            ] table[x=r (m), y=Sphere (V), col sep=comma]{Theoretical Voltages.csv};
+            \addplot+[
+                only marks,
+                mark=*,
+                mark options={fill=green, draw=green}
+            ] table[x=r (m), y=Cylinder (V), col sep=comma]{Theoretical Voltages.csv};
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+\subsection{Geometry}
+The geometry of the dot-ring configuration is closest to a cylinder, because the experimental voltages measured on the dot-ring configuration more closely match the theoretical voltages of a cylinderical geometry rather than a spherical geometry.
+\subsection{Improvements}
+If we were to repeat the lab, we would be more precise in where we measured our voltages, since we were not entirely consistent with that when we did our lab.
+\subsection{$\epsilon_0$ Value}
+The average experimental $\epsilon_0$ value obtained was $6.32 * 10^-12 \frac{C^2}{N * m^2}$, which has a percent error of $28.59\%$
+\end{document}
