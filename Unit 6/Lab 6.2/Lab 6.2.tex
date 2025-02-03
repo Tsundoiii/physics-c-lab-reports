@@ -20,7 +20,7 @@ The spring constant will be halved when the springs are in series.
 \section{Procedure}
 \subsection{Parallel}
 \begin{enumerate}
-    \item Hang two identical springs from the spring brakcet.
+    \item Hang two yellow springs from the spring brakcet.
     \item Hang a mass from the two springs.
     \item Stretch mass on springs.
     \item Record time for 10 oscillations of mass.
@@ -29,14 +29,84 @@ The spring constant will be halved when the springs are in series.
 \end{enumerate}
 \subsection{Series}
 \begin{enumerate}
-    \item Hang one spring on spring bracket, then hang another identical spring on the spring.
+    \item Hang blue spring on spring bracket, then hang another blue spring on the spring.
     \item Hang a mass from the bottom of second spring.
     \item Stretch mass on springs.
     \item Record time for 10 oscillations of mass.
     \item Divide by 10 to find period.
-    \item Repeat with nonidentical springs.
+    \item Repeat with green spring on bottom.
 \end{enumerate}
 \section{Data}
+\subsection{Spring Constants}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Spring Constants.csv}
+\end{center}
+\subsection{Parallel Same Springs}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Parallel Same Spring.csv}
+\end{center}
+\subsection{Parallel Different Springs}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Parallel Different Spring.csv}
+\end{center}
+\subsection{Series Same Springs}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Series Same Spring.csv}
+\end{center}
+\subsection{Series Same Springs}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, precision=3, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Series Different Spring.csv}
+\end{center}
 \section{Derivations}
 \subsection{Experimental $k$}
 \[T = \tau\sqrt{\frac{m}{k}}\]
@@ -57,4 +127,8 @@ The spring constant will be halved when the springs are in series.
 \[k_{eff}(\frac{1}{k_1} + \frac{1}{k_2}) = 1\]
 \[k_{eff} = \frac{1}{\frac{1}{k_1} + \frac{1}{k_2}}\]
 \section{Conclusion}
+My hypothesis about parallel springs was incorrect, as the effective spring constant for parallel springs is simply the sum of all the spring costants in the system.
+
+\noindent
+My hypothesis about springs in series was true for identical springs in series, but it does not remain true for nonidentical springs.
 \end{document}
