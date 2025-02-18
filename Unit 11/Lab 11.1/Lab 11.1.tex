@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+\pgfplotsset{compat=1.18}
+
+\title{11.1: Internal Resistance Lab}
+\name{Gavin Chen}
+\ww{Daniel Aronov}
+
+\begin{document}
+\section{Data}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=6, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Lab 11.1.csv}
+\end{center}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[enlargelimits=false, xlabel = Current ($A$), ylabel = Voltage ($V$)]
+            \addlegendentry{Experimental}
+
+            \addplot+[
+                only marks,
+                mark=*,
+                mark options={fill=blue, draw=blue}
+            ] table[x=Current (A), y=Voltage (V), col sep=comma]{Lab 11.1.csv};
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+\end{document}
