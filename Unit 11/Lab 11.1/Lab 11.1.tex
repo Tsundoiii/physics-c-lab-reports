@@ -30,7 +30,9 @@
     \centering
     \begin{tikzpicture}
         \begin{axis}[enlargelimits=false, xlabel = Current ($A$), ylabel = Voltage ($V$)]
-            \addlegendentry{Experimental}
+            \addlegendentry{$V = -12.5I + 1.$5}
+
+            \addplot[domain=0:0.0254, samples=100, blue, thick] {-12.5*x + 1.5};
 
             \addplot+[
                 only marks,
@@ -40,4 +42,10 @@
         \end{axis}
     \end{tikzpicture}
 \end{figure}
+\section{emf}
+The emf we measured was 1.487 $V$.
+\section{Internal Resistance}
+The internal resistance of the battery is the negative slope of the graph, which is $12.5 \Omega$.
+\section{emf Comparison}
+The measured emf of 1.487 $V$ was very close to the emf calculated from the $y$-intercept of the graph, which was $1.5 V$.This makes sense, since the $y$-intercept should be exactly the emf.
 \end{document}
