@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+\pgfplotsset{compat=1.18}
+
+\title{12.3: Electron Charge to Mass Ratio Lab}
+\name{Gavin Chen}
+
+\begin{document}
+\section{Electron Velocity}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=6, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{
+        Plate Distance ($m$), Magnetic Field ($T$), Voltage ($V$)
+        0.005, 0.000758, 50
+    }
+\end{center}
+\[F_E = F_B\]
+\[Eq = qvB\sin(\theta)\]
+\[v = \frac{E}{B\sin(\theta)}\]
+\[v = \frac{V}{dB\sin(\theta)}\]
+\[v = 13,100,000 \frac{m}{s}\]
+\section{Charge-to-Mass Ratio}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=5, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{
+        Magnetic Field ($T$), Radius ($m$)
+        0.0005, 0.15032
+    }
+\end{center}
+\[F_B = F_C\]
+\[qvB\sin(\theta) = \frac{mv^2}{r}\]
+\[\frac{q}{m} = \frac{v}{rB\sin(\theta)}\]
+\[\frac{q}{m} = \frac{v}{rB\sin(\theta)}\]
+\[\frac{q}{m} = 174,290,000,000 \frac{C}{kg}\]
+\[\%_{error} = 0.9125\%\]
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[light, inline-math]{chs-physics-report}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+
+\pgfplotsset{compat=1.18}
+
+\title{12.2: Slinky Solenoid Lab}
+\name{Gavin Chen}
+
+\begin{document}
+\section{Part 1}
+\subsection{Data}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[enlargelimits=false, xlabel = {Current in Solenoid (A)}, ylabel = {Magnetic Field (T)}]
+            \addplot[domain=0:2, samples=100, blue, thick] {9.67e-5*x + 1.11e-6};
+
+            \addplot+[
+                only marks,
+            ] table[x=Current in Solenoid (A), y=Magnetic Field (T), col sep=comma]{Part 1.csv};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Magnetic field vs. current in solenoid, with a solenoid length of 1 $m$ with 82 turns.}
+\end{figure}
+\subsection{Analysis}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[enlargelimits=false, xlabel = {Turns Per Meter}, ylabel = {Magnetic Field (T)}]
+            \addplot[domain=0:328, samples=100, blue, thick] {2.49e-6*x - 2.67e-5};
+
+            \addplot+[
+                only marks,
+            ] table[x=Turns Per Meter, y=Magnetic Field (T), col sep=comma]{Part 2.csv};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Magnetic field vs. current in solenoid, with a solenoid length of 1 $m$ with 82 turns.}\
+\end{figure}
+\end{document}
