@@ -9,10 +9,25 @@
 
 \title{12.2: Slinky Solenoid Lab}
 \name{Gavin Chen}
+\ww{Cole TerBush and Daniel Aronov}
 
 \begin{document}
 \section{Part 1}
 \subsection{Data}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, fixed zerofill, precision=2, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Part 1.csv}
+\end{center}
+\subsection{Analysis}
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
@@ -24,8 +39,23 @@
             ] table[x=Current in Solenoid (A), y=Magnetic Field (T), col sep=comma]{Part 1.csv};
         \end{axis}
     \end{tikzpicture}
-    \caption{Magnetic field vs. current in solenoid, with a solenoid length of 1 $m$ with 82 turns.}
+    \caption{Magnetic field vs. current in solenoid, with a solenoid length of 1 $m$ with 82 turns. The shape of the graph and the equation for magnetic field in a solenoid roughly agree with each other. The slope of the graph is the permeability constant $\mu_0$ times the number of turns divided by the length of the solenoid, which here is $9.67 * 10^{-5} \frac{T}{A}$. Using the slope to calculate $\mu_0$, we get $1.18 \cdot 10^{-6} \frac{kg \cdot m}{s^2 \cdot A^2}$, with a $6.16\%$ error from the true value.}
 \end{figure}
+\section{Part 2}
+\subsection{Data}
+\begin{center}
+    \pgfplotstabletypeset[col sep=comma, fixed zerofill, precision=2, every head row/.style={
+                before row={
+                        \toprule
+                    },
+                after row={
+                        \bottomrule
+                    },
+            },
+        every last row/.style={
+                after row=\bottomrule
+            }]{Part 2.csv}
+\end{center}
 \subsection{Analysis}
 \begin{figure}[H]
     \centering
@@ -38,6 +68,8 @@
             ] table[x=Turns Per Meter, y=Magnetic Field (T), col sep=comma]{Part 2.csv};
         \end{axis}
     \end{tikzpicture}
-    \caption{Magnetic field vs. current in solenoid, with a solenoid length of 1 $m$ with 82 turns.}\
+    \caption{Magnetic field vs. turns per meter of a solenoid, with a solenoid with 82 turns with a current of $2 A$ running through it. The shape of the graph and the equation for magnetic field in a solenoid roughly agree with each other. The slope of the graph is the permeability constant $\mu_0$ times the current through the solenoid, which here is $2.49 * 10^{-6} \frac{T \cdot m}{turns}$. Using the slope to calculate $\mu_0$, we get $1.25 \cdot 10^{-6} \frac{kg \cdot m}{s^2 \cdot A^2}$, with a $0.53\%$ error from the true value.}
 \end{figure}
+\section{Analysis}
+The average value of $\mu_0$ is $1.21 \cdot 10^{-6} \frac{kg \cdot m}{s^2 \cdot A^2}$, with a $3.54\%$ error.
 \end{document}
