@@ -1,0 +1,4 @@
+Constant,Theoretical,Experimental
+Permittivity ($\frac{C^2 \cdot s^2}{kg \cdot m^3}$),8.8541878188E-12,6.32E-12
+Permeability ($\frac{N}{A^2}$),1.26E-06,1.21E-06
+Speed of light ($\frac{m}{s}$),299792458,361616947.4

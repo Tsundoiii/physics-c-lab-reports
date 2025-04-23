@@ -9,11 +9,11 @@
 
 \title{13.1: Speed of Light}
 \name{Gavin Chen}
+\ww{}
 
 \begin{document}
-\section*{Eddy Currents}
 \begin{center}
-    \pgfplotstabletypeset[col sep=comma, /pgf/number format/fixed, fixed zerofill, precision=6, every head row/.style={
+    \pgfplotstabletypeset[col sep=comma, display columns/0/.style={string type}, every head row/.style={
                 before row={
                         \toprule
                     },
@@ -23,9 +23,7 @@
             },
         every last row/.style={
                 after row=\bottomrule
-            }]{
-        $\epslion_0$, Magnetic Field ($T$), Voltage ($V$)
-        0.005, 0.000758, 50
-    }
+            }]{Lab 13.1.csv}
 \end{center}
+We had a 20\% error for our experimental result.
 \end{document}
